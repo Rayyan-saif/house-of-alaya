@@ -1,0 +1,1 @@
+import type {MetadataRoute} from "next";export default function sitemap():MetadataRoute.Sitemap{return["","women","men","jewellery","new-arrivals","sale","about","contact","faq","shipping","returns","privacy","terms"].map(x=>({url:`https://the-house-of-alaya.sites.chatgpt.com/${x}`,lastModified:new Date()}))}

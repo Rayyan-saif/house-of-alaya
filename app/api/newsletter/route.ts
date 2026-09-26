@@ -1,0 +1,2 @@
+import {getDb} from "../../../db";import {newsletters} from "../../../db/schema";
+export async function POST(req:Request){try{const{email}=await req.json() as {email?:string};if(!email||!/^\S+@\S+\.\S+$/.test(email))return Response.json({error:"Enter a valid email."},{status:400});await getDb().insert(newsletters).values({email:email.toLowerCase()}).onConflictDoNothing();return Response.json({ok:true})}catch{return Response.json({error:"Unable to subscribe right now."},{status:500})}}
